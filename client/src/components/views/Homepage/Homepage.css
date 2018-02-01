@@ -1,0 +1,17 @@
+#homepage-container {
+  text-align: center;
+}
+
+.homepage-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  margin: 15px auto;
+  font-size: 1.6em;
+  padding: 7px;
+}
+  .homepage-btn:hover {
+    cursor: pointer
+  }
