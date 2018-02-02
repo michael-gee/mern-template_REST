@@ -15,7 +15,9 @@ class Homepage extends Component {
 
         <button onClick={this.props.changeInitialState} className="homepage-btn">Change Initial State</button>
 
-        <button className="homepage-btn">Get Backend Data from Express/MongoDB</button>
+        <a href="/api/mock-data" style={{textDecoration: 'none'}}>
+          <button className="homepage-btn">Get Backend Data from Express/MongoDB</button>
+        </a>
 
         <br/>
 
