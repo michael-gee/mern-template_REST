@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import * as actions from '../../../actions';
-import './Homepage.css';
+import * as actions from '../actions';
+import '../styles/view_styles/Homepage.css';
 
 class Homepage extends Component {
   render() {
@@ -22,7 +22,7 @@ class Homepage extends Component {
         <br/>
 
         <Link to="/secondary">
-          Secondary Page
+          Secondary Route Page
         </Link>
       </div>
     );

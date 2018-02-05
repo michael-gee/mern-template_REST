@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Homepage from './views/Homepage/Homepage';
-import { Secondary } from './views/Secondary/Secondary';
+import '../styles/index.css';
+
+import Header from './Header';
+import Homepage from '../views/Homepage';
+import { Secondary } from '../views/Secondary';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Router>
-          <div>
-            <Route path="/" component={Homepage} exact />
-            <Route path="/secondary" component={Secondary} exact />
-          </div>
-        </Router>
-      </div>
+      <Router>
+        <div>
+          <Header title="MERN Template" />
+          
+          <Route exact path="/" component={Homepage} />
+          
+          <Route path="/secondary" component={Secondary} />
+        </div>
+      </Router>
     );
   }
 }
