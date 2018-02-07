@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+const routes = require('./routes');
 const keys = require('./config/keys');
-require('./models/mockData');
 
 const app = express();
 
@@ -10,8 +10,7 @@ mongoose.connect(keys.mongoConfig);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
-const apiRoutes = require('./api');
-app.use('/api', apiRoutes);
+app.use('/api', routes);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
