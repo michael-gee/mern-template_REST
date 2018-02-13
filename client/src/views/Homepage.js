@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import RaisedButton from 'material-ui/RaisedButton';
+
 import * as actions from '../actions';
 import '../styles/view_styles/Homepage.css';
 
@@ -13,17 +15,39 @@ class Homepage extends Component {
 
         <h2>Inital State: {this.props.initial.message}</h2>
 
-        <button onClick={this.props.changeInitialState} className="homepage-btn">Change Initial State</button>
+        <RaisedButton 
+          onClick={this.props.changeInitialState} 
+          label="Change Initial State"
+          backgroundColor="red"
+          labelStyle={{
+            color: 'white',
+            fontSize: '1.4em',
+            display: 'flex',
+            paddingTop: '10px'
+          }}
+          style={{
+            margin: '10px 0',
+            height: '50px'
+          }} 
+        />
 
-        <a href="/api/mock-data" style={{textDecoration: 'none'}}>
-          <button className="homepage-btn">Get Backend Data from Express/MongoDB</button>
-        </a>
+        <br />
 
-        <br/>
-
-        <Link to="/secondary">
-          Secondary Route Page
-        </Link>
+        <RaisedButton 
+          href="/api/mock-data" 
+          label="Get Backend Data from Express/MongoDB"
+          backgroundColor="red"
+          labelStyle={{
+            color: 'white',
+            fontSize: '1.4em',
+            display: 'flex',
+            paddingTop: '10px'
+          }}
+          style={{
+            margin: '10px 0',
+            height: '50px'
+          }}
+        />
       </div>
     );
   }

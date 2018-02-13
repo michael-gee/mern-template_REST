@@ -1,19 +1,32 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
+#header-toolbar {
+  display: flex !important;
+  align-items: center !important;
+  height: 75px !important;
+  margin-bottom: 25px !important;
+  background-color: red !important;
+}
+
+#header-title {
+  font-size: .7em;
   color: white;
-  height: 75px;
-  margin-bottom: 25px;
+  text-decoration: none;
+}
+  #header-title:hover {
+    cursor: pointer;
+  }
+
+.auth-btn {
+  background-color: white;
+  margin: 0 15px;
+  width: 125px;
 }

@@ -1,4 +1,3 @@
-
 import { CHANGE_INITIAL_STATE } from './types';
 
 export const changeInitialState = () => {
