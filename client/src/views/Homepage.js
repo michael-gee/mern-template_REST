@@ -7,7 +7,6 @@ import * as actions from '../actions';
 
 class Homepage extends Component {
   render() {
-    console.log(this.props);
     return (
       <div id="homepage-container">
         <h1>Material-UI Homepage</h1>
@@ -18,7 +17,7 @@ class Homepage extends Component {
           variant="raised" 
           size="large" 
           color="primary"
-          onClick={() => actions.changeInitialState('State Changed!')}
+          onClick={() => this.props.changeInitialState('State Changed!')}
         >
           Change Initial State
         </Button>
