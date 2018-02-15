@@ -8,25 +8,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-#header-toolbar {
-  display: flex !important;
-  align-items: center !important;
-  height: 75px !important;
-  margin-bottom: 25px !important;
-  background-color: red !important;
-}
-
-#header-title {
-  font-size: .7em;
-  color: white;
-  text-decoration: none;
-}
-  #header-title:hover {
-    cursor: pointer;
-  }
-
-.auth-btn {
-  background-color: white;
-  margin: 0 15px;
-  width: 125px;
+#homepage-container {
+  text-align: center;
 }

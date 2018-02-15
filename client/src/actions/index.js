@@ -1,9 +1,14 @@
 import { CHANGE_INITIAL_STATE } from './types';
 
-export const changeInitialState = () => {
-  let message = 'Changed State!';
+export const changeInitialState = (newMessage) => {
+  let message = newMessage;
+  
+  console.log(message);
 
-  return (dispatch) => {
-    dispatch({ type: CHANGE_INITIAL_STATE, payload: { message } });
+  return function (dispatch) {
+    dispatch({ 
+      type: CHANGE_INITIAL_STATE, 
+      payload: { message } 
+    });
   }
 }
