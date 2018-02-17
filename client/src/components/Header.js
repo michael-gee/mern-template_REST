@@ -44,15 +44,19 @@ class Header extends Component {
               <Button 
                 variant="raised" 
                 className={classes.authBtn} 
-                label="Home"
               > Homepage</Button>
             </Link>
             <Link to="/secondary" className={classes.headerLink}>
               <Button 
                 variant="raised" 
                 className={classes.authBtn}
-                label="Secondary"
               >Secondary</Button>
+            </Link>
+            <Link to="/auth" className={classes.headerLink}>
+              <Button
+                variant="raised"
+                className={classes.authBtn}
+              >Sign In</Button>
             </Link>
           </Toolbar>
         </AppBar>
