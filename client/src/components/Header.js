@@ -37,7 +37,7 @@ class Header extends Component {
         <AppBar color="primary">
           <Toolbar>
             <Typography variant="title" className={classes.title}>
-              Material UI MERN Template
+              MERN Template
             </Typography>
 
             <Link to="/" className={classes.headerLink}>

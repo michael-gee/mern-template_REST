@@ -9,7 +9,7 @@ class Homepage extends Component {
   render() {
     return (
       <div id="homepage-container">
-        <h1>Material-UI Homepage</h1>
+        <h1>MERN Template Homepage</h1>
         <h2>Inital State: {this.props.initial.message}</h2>
 
         <br/>
