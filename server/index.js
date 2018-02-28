@@ -1,16 +1,23 @@
 const express = require('express');
+const expressGraphQL = require('express-graphql');
 const mongoose = require('mongoose');
 
 const routes = require('./routes');
+const schema = require('./schema/schema');
 const keys = require('./config/keys');
 
 const app = express();
 
+app.use('/graphql', expressGraphQL({
+  schema,
+  graphiql: true
+}));
+
+app.use('/api', routes);
+
 mongoose.connect(keys.mongoConfig);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-
-app.use('/api', routes);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

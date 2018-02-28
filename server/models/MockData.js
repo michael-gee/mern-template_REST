@@ -1,13 +1,25 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const MockEntrySchema = new Schema({
-  data: {
-    type: Object,
+const PostsSchema = new Schema({
+  id: {
+    type: Number,
+    required: true,
+    unique: true
+  },
+  user: {
+    type: String,
     required: true
-  }
+  },
+  message: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: Array
+  },
 });
 
-const MockEntryModel = mongoose.model('mock_entries', MockEntrySchema);
+const PostsModel = mongoose.model('posts', PostsSchema);
 
-module.exports = MockEntryModel;
+module.exports = PostsModel;
