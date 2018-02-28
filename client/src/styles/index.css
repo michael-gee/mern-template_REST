@@ -8,6 +8,42 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color: white;
+  height: 75px;
+  margin-bottom: 25px;
+  padding: 0 25px;
+}
+  #header-title {
+    text-align: center;
+    margin-right: auto;
+  }
+  #header-btn {
+    padding: 10px 25px;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+  }
+    #header-btn {
+      cursor: pointer;
+    }
+
 #homepage-container {
   text-align: center;
 }
+  .homepage-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-size: 20px;
+  }
+    .homepage-btn:hover {
+      cursor: pointer;
+    }
