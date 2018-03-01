@@ -1,1 +1,5 @@
-export const CHANGE_INITIAL_STATE = 'change-initial-state';
+const types = {
+  CHANGE_INITIAL_STATE: 'changeInitialState',
+};
+
+export default types;

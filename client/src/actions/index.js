@@ -1,12 +1,16 @@
-import { CHANGE_INITIAL_STATE } from './types';
+import types from './types';
 
-export const changeInitialState = (newMessage) => {
-  let message = newMessage;
+const actions = {
+  changeInitialState(newMessage) {
+    const message = newMessage;
 
-  return function (dispatch) {
-    dispatch({ 
-      type: CHANGE_INITIAL_STATE, 
-      payload: { message } 
-    });
-  }
-}
+    return function changeInitialStateFunc(dispatch) {
+      dispatch({
+        type: types.CHANGE_INITIAL_STATE,
+        payload: { message },
+      });
+    };
+  },
+};
+
+export default actions;
