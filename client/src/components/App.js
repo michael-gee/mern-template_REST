@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Header from './components/Header';
-import Homepage from './components/Views/Homepage';
-import Secondary from './components/Views/Secondary';
-import NotFoundPage from './components/Views/NotFoundPage';
+import Header from './Layout/Header';
+import Homepage from './Views/Homepage';
+import Secondary from './Views/Secondary';
+import NotFoundPage from './Views/NotFoundPage';
 
-const Routes = () => (
+import '../styles/global.css';
+
+const App = () => (
   <Router>
     <div className="container">
       <Header title="MERN Template" />
@@ -21,4 +23,4 @@ const Routes = () => (
   </Router>
 );
 
-export default Routes;
+export default App;
