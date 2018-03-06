@@ -24,14 +24,14 @@ header {
     color: white;
     text-decoration: none;
   }
-  #header-btn {
+  .header-btn {
     padding: 10px 25px;
     background-color: white;
     border-radius: 5px;
     border: none;
     font-size: 18px;
   }
-    #header-btn {
+    .header-btn:hover {
       cursor: pointer;
     }
 

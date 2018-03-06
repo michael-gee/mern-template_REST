@@ -13,6 +13,17 @@ const actions = {
     };
   },
 
+  onUserAuthentication(isLoggedIn, history) {
+    if(isLoggedIn) {
+      history.push('/');
+      return { type: types.USER_LOGGED_IN };
+    } else {
+      localStorage.removeItem('token');
+      history.push('/');
+      return { type: types.USER_LOGGED_OUT };
+    }
+  },
+
   onLocalSignUp(email, password, history) {
     email = 'test@test.com';
     password = 'test123';
@@ -23,20 +34,6 @@ const actions = {
           console.log(user);
           console.log('success!');
         });
-    }
-  },
-
-  onSocialLogIn(provider, history) {
-    return dispatch => {
-      return axios.get(`/auth/${provider}`, {
-        mode: 'cors',
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        }
-      }).then(res => {
-        console.log(res);
-      });
     }
   }
 };

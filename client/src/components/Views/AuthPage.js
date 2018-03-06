@@ -17,14 +17,15 @@ class AuthPage extends Component {
         <br/><br/>
 
         <div id="social-media-links">
+
           <a href="/auth/google">Google Login</a><br />
-          <button onClick={() => this.props.onSocialLogIn('github', this.props.history)}>Google Loogin</button>
+
           <br /><br />
           <a href="/auth/github">Github Login</a><br />
-          <button onClick={() => this.props.onSocialLogIn('github', this.props.history)}>Github Login</button>
+  
           <br /><br />
           <a href="/auth/facebook">Facebook Login</a><br />
-          <button onClick={() => this.props.onSocialLogIn('facebook', this.props.history)}>Facebook Login</button>
+          
           <br /><br />
         </div>
 
