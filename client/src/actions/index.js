@@ -1,3 +1,4 @@
+import axios from 'axios';
 import types from './types';
 
 const actions = {
@@ -11,6 +12,33 @@ const actions = {
       });
     };
   },
+
+  onLocalSignUp(email, password, history) {
+    email = 'test@test.com';
+    password = 'test123';
+    return function (dispatch) {
+      console.log(email, password, history);
+      axios.post('/auth/sign-up', { email, password })
+        .then(user => {
+          console.log(user);
+          console.log('success!');
+        });
+    }
+  },
+
+  onSocialLogIn(provider, history) {
+    return dispatch => {
+      return axios.get(`/auth/${provider}`, {
+        mode: 'cors',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+        }
+      }).then(res => {
+        console.log(res);
+      });
+    }
+  }
 };
 
 export default actions;

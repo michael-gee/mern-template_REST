@@ -13,9 +13,9 @@ exports.userLogIn = (req, res, next) => {
 }
 
 exports.userSignUp = (req, res, next) => {
-  const name = req.body.name;
-  const email = req.body.email;
-  const password = req.body.password;
+  const name = req.body.name,
+        email = req.body.email,
+        password = req.body.password;
 
   User.findOne({ "local.email": email })
     .then(existingUser => {
