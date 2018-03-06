@@ -8,6 +8,4 @@ const MockEntrySchema = new Schema({
   }
 });
 
-const MockEntryModel = mongoose.model('mock_entries', MockEntrySchema);
-
-module.exports = MockEntryModel;
+module.exports = mongoose.model('mock_entries', MockEntrySchema);
