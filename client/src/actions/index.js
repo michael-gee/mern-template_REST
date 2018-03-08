@@ -13,6 +13,17 @@ const actions = {
     };
   },
 
+  getCurrentUser() {
+    axios.get('/auth/current-user', {
+      headers: {
+        authorization: localStorage.getItem('AUTH_TOKEN')
+      }
+    })
+    .then(res => {
+      console.log(res);
+    });
+  },
+
   onUserAuthentication(isLoggedIn, history) {
     if(isLoggedIn) {
       history.push('/');

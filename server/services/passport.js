@@ -25,7 +25,7 @@ passport.deserializeUser((id, done) => {
 
 passport.use(
   new JwtStrategy({
-    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+    jwtFromRequest: ExtractJwt.fromHeader('authorization'),
     secretOrKey: config.jwtSecret
   }, (payload, done) => {
     User.findById(payload.sub)

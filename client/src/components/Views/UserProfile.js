@@ -11,7 +11,7 @@ const UserProfile = (props) => {
 
       <br/><br/>
 
-      <a href="/auth/current-user">Current User</a>
+      <button onClick={props.getCurrentUser}>Get Current User</button>
     </div>
   );
 }

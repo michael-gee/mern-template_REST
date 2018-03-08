@@ -5,7 +5,7 @@ require('../services/passport');
 const token = require('../controllers/tokenController');
 const User = require('../db/models/User');
 
-exports.requireLocalAuth = passport.authenticate('jwt', { session: false });
+exports.requireAuth = passport.authenticate('jwt', { session: false });
 
 exports.userLogIn = (req, res, next) => {
   const accessToken = token.generateToken(req.user);

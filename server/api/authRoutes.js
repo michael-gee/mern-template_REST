@@ -6,7 +6,7 @@ const Auth = require('../controllers/authController');
 router.post('/log-in', Auth.userLogIn);
 router.post('/sign-up', Auth.userSignUp);
 
-router.get('/hello', Auth.requireLocalAuth, (req, res, next) => {
+router.get('/hello', Auth.requireAuth, (req, res, next) => {
   res.send('Hello!!!');
 });
 
@@ -29,11 +29,12 @@ router.get('/facebook/callback',
 // ********** AUTH USER ROUTES **********
 router.get('/current-user',
   (req, res, next) => {
+    console.log(req.headers);
     console.log(req.user);
     res.send(req.user);
   }
 );
-router.get('/logout',
+router.get('/logout', Auth.requireAuth,
   (req, res, next) => {
     req.logout();
     res.redirect('/');
