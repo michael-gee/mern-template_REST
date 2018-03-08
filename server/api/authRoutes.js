@@ -29,6 +29,7 @@ router.get('/facebook/callback',
 // ********** AUTH USER ROUTES **********
 router.get('/current-user',
   (req, res, next) => {
+    console.log(req.user);
     res.send(req.user);
   }
 );

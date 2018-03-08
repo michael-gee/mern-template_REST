@@ -3,6 +3,7 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       morgan = require('morgan'),
       passport = require('passport'),
+      passportSetUp = require('./services/passport'),
       cors = require('cors');
       dbConnection = require('./db'),
       config = require('./config/keys'),

@@ -18,7 +18,7 @@ const actions = {
       history.push('/');
       return { type: types.USER_LOGGED_IN };
     } else {
-      localStorage.removeItem('token');
+      localStorage.removeItem('AUTH_TOKEN');
       history.push('/');
       return { type: types.USER_LOGGED_OUT };
     }

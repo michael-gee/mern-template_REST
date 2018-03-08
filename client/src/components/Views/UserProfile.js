@@ -8,6 +8,10 @@ const UserProfile = (props) => {
       <h1>Profile Page</h1>
 
       <button onClick={() => props.onUserAuthentication(false, props.history)}>Log Out</button>
+
+      <br/><br/>
+
+      <a href="/auth/current-user">Current User</a>
     </div>
   );
 }

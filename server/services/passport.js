@@ -18,7 +18,7 @@ passport.serializeUser((user, done) => {
 // Turn the socialAuthID string back into a user model 
 passport.deserializeUser((id, done) => {
   User.findById(id)
-    .then((user) => {
+    .then(user => {
       done(null, user);
     });
 });
