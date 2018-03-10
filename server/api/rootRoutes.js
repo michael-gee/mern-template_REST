@@ -1,8 +1,8 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const router = express.Router();
+      mongoose = require('mongoose');
+      router = express.Router();
 
-const MockEntry = require('../models/MockData');
+const MockEntry = require('../db/models/MockData');
 
 router.get('/', (req, res, next) => {
   res.send('API Routes');
