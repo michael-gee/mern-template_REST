@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import actions from '../../actions';
+import actions from '../../../actions';
 
 class TokenConfig extends Component {
   constructor(props) {

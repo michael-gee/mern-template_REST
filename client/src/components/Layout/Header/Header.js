@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import './Header.css';
+
 const Header = props => {
   function renderHeaderBtn() {
     if(props.authenticated) {

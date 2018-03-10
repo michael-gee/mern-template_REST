@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './HomePage.css';
+
 const Homepage = props => (
   <div id="homepage-container">
     <h1>MERN Template Homepage</h1>

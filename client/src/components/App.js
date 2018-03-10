@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import actions from '../actions';
 
-import Header from './Layout/Header';
+import Header from './Layout/Header/Header';
 
-import Homepage from './Views/Homepage';
-import AuthPage from './Views/AuthPage';
-import UserProfile from './Views/UserProfile';
-import TokenConfig from './Views/TokenConfig';
-import NotFoundPage from './Views/NotFoundPage';
+import HomePage from './Views/HomePage/HomePage';
+import AuthPage from './Views/AuthPage/AuthPage';
+import NotFoundPage from './Views/NotFoundPage/NotFoundPage';
+import TokenConfig from './Views/TokenConfig/TokenConfig';
+import UserProfile from './Views/UserProfile/UserProfile';
 
-import '../styles/global.css';
+import './App.css';
 
 class App extends Component {
   componentDidMount() {
@@ -25,7 +25,7 @@ class App extends Component {
           <Header title="MERN Template" />
 
           <Switch>
-            <Route exact path="/" component={Homepage} />
+            <Route exact path="/" component={HomePage} />
 
             <Route path="/log-in" component={AuthPage} />
             <Route path="/user-profile" component={UserProfile} />
