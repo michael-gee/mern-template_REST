@@ -1,9 +1,9 @@
-const express = require('express');
-const passport = require('passport');
+const express = require('express'),
+      passport = require('passport'),
+      token = require('../controllers/tokenController'),
+      User = require('../db/models/User');
+      
 require('../services/passport');
-
-const token = require('../controllers/tokenController');
-const User = require('../db/models/User');
 
 exports.requireAuth = passport.authenticate('jwt', { session: false });
 
@@ -13,9 +13,9 @@ exports.userLogIn = (req, res, next) => {
 }
 
 exports.userSignUp = (req, res, next) => {
-  const name = req.body.name,
-        email = req.body.email,
-        password = req.body.password;
+  const name = 'Michael Gee',
+        email = 'michaelgee221@gmail.com',
+        password = 'test';
 
   User.findOne({ "local.email": email })
     .then(existingUser => {
@@ -35,8 +35,8 @@ exports.userSignUp = (req, res, next) => {
 
       newUser.save()
         .then(user => {
-          const accessToken = token.generateToken(user);
-          res.status(200).json({ token: accessToken });
+          const accessToken = token.generateToken(req.user);
+          res.redirect(`/token?token=${accessToken}`);
         })
         .catch(err => {
           next(err);
@@ -60,7 +60,6 @@ exports.googleSendToken = (req, res, next) => {
   const accessToken = token.generateToken(req.user);
   res.redirect(`/token?token=${accessToken}`);
 }
-
 
 exports.facebookLogIn = passport.authenticate('facebook');
 exports.facebookCallback = passport.authenticate('facebook', { failureRedirect: '/error' });

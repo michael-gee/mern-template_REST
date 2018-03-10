@@ -1,16 +1,7 @@
 const mongoose = require('mongoose');
-const config = require('../config/keys');
 mongoose.Promise = global.Promise;
-let MONGO_URL;
 
-if (process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_URI)
-  MONGO_URL = process.env.MONGODB_URI
-} else {
-  mongoose.connect(config.mongoConfig);
-  MONGO_URL = config.mongoConfig;
-}
-
+mongoose.connect(process.env.MONGO_URI);
 const db = mongoose.connection;
 
 db.on('error', err => {
@@ -18,7 +9,7 @@ db.on('error', err => {
 });
 db.once('open', () => {
   console.log(
-    `You have successfully connected to your mongo database: ${MONGO_URL}`
+    `You have successfully connected to your mongo database: ${process.env.MONGO_URI}`
   )
 });
 

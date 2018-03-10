@@ -6,8 +6,7 @@ const passport = require('passport'),
       GoogleStrategy = require('passport-google-oauth20').Strategy;
       FacebookStrategy = require('passport-facebook').Strategy,
       mongoose = require('mongoose'),
-      User = require('../db/models/User'),
-      config = require('../config/keys');
+      User = require('../db/models/User');
 
 //Turning a user model and turning it into a user ID provided by MongoDB
 passport.serializeUser((user, done) => {
@@ -26,7 +25,7 @@ passport.deserializeUser((id, done) => {
 passport.use(
   new JwtStrategy({
     jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-    secretOrKey: config.jwtSecret
+    secretOrKey: process.env.JWT_SECRET
   }, (payload, done) => {
     User.findById(payload.sub)
       .then(existingUser => {
@@ -67,9 +66,9 @@ passport.use(
 
 passport.use(
   new GoogleStrategy({
-    clientID: config.googleKeys.clientID,
-    clientSecret: config.googleKeys.clientSecret,
-    callbackURL: config.googleKeys.callbackURL,
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: process.env.GOOGLE_CALLBACK_URL,
     proxy: true
   }, (accessToken, refreshToken, profile, done) => {
     User.findOne({ "google.id": profile.id })
@@ -96,9 +95,9 @@ passport.use(
 
 passport.use(
   new FacebookStrategy({
-    clientID: config.facebookKeys.clientID,
-    clientSecret: config.facebookKeys.clientSecret,
-    callbackURL: config.facebookKeys.callbackURL,
+    clientID: process.env.FACEBOOK_CLIENT_ID,
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL: process.env.FACEBOOK_CALLBACK_URL,
     profileFields: ['id', 'name', 'emails', 'displayName', 'photos'],
     proxy: true
   }, (accessToken, refreshToken, profile, done) => {
@@ -126,9 +125,9 @@ passport.use(
 
 passport.use(
   new GithubStrategy({
-    clientID: config.githubKeys.clientID,
-    clientSecret: config.githubKeys.clientSecret,
-    callbackURL: config.githubKeys.callbackURL,
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: process.env.GITHUB_CALLBACK_URL,
     proxy: true
   }, (accessToken, refreshToken, profile, done) => {
     User.findOne({ "github.id": profile.id })

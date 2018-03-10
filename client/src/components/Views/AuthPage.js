@@ -12,7 +12,7 @@ class AuthPage extends Component {
 
         <br />
 
-        <button onClick={() => this.props.onLocalSignUp(null, null, this.props.history)}>Local Auth</button>
+        <a href="/auth/sign-up">Local Sign Up</a>
 
         <br/><br/>
 

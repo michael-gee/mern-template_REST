@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import actions from '../actions';
 
 import Header from './Layout/Header';
 
@@ -11,22 +13,36 @@ import NotFoundPage from './Views/NotFoundPage';
 
 import '../styles/global.css';
 
-const App = () => (
-  <Router>
-    <div className="container">
-      <Header title="MERN Template" />
+class App extends Component {
+  componentDidMount() {
+    this.props.updateUserStatus(localStorage.getItem("AUTH_TOKEN"));
+  }
 
-      <Switch>
-        <Route exact path="/" component={Homepage} />
+  render() {
+    return (
+      <Router>
+        <div className="container">
+          <Header title="MERN Template" />
 
-        <Route path="/log-in" component={AuthPage} />
-        <Route path="/user-profile" component={UserProfile} />
+          <Switch>
+            <Route exact path="/" component={Homepage} />
 
-        <Route path="/token" component={TokenConfig} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
-  </Router>
-);
+            <Route path="/log-in" component={AuthPage} />
+            <Route path="/user-profile" component={UserProfile} />
 
-export default App;
+            <Route path="/token" component={TokenConfig} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </div>
+      </Router> 
+    );
+  }
+}
+
+function mapStateToPros({ auth }) {
+  return {
+    authenticated: auth.authenticated
+  }
+}
+
+export default connect(mapStateToPros, actions)(App);

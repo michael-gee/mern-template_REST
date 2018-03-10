@@ -1,5 +1,4 @@
-const JWT = require('jsonwebtoken'),
-      config = require('../config/keys');
+const JWT = require('jsonwebtoken');
 
 exports.generateToken = (user) => {
   return JWT.sign({
@@ -7,5 +6,5 @@ exports.generateToken = (user) => {
     sub: user.id,
     iat: new Date().getTime(),
     exp: new Date().setDate(new Date().getDate() + 1)
-  }, config.jwtSecret);
+  }, process.env.JWT_SECRET);
 }

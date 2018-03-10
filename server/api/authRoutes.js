@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const Auth = require('../controllers/authController');
+const express = require('express'),
+      router = express.Router(),
+      Auth = require('../controllers/authController');
 
 // AUTH ROUTES
 router.post('/log-in', Auth.userLogIn);
@@ -27,9 +27,8 @@ router.get('/facebook/callback',
   Auth.facebookCallback, Auth.facebookSendToken);
 
 // ********** AUTH USER ROUTES **********
-router.get('/current-user',
+router.get('/current-user', Auth.requireAuth,
   (req, res, next) => {
-    console.log(req.headers);
     console.log(req.user);
     res.send(req.user);
   }

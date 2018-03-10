@@ -1,27 +1,34 @@
-import axios from 'axios';
 import types from './types';
 
 const actions = {
-  changeInitialState(newMessage) {
-    const message = newMessage;
-
-    return function changeInitialStateFunc(dispatch) {
-      dispatch({
-        type: types.CHANGE_INITIAL_STATE,
-        payload: { message },
-      });
-    };
+  updateUserStatus(status) {
+    if(status === null) {
+      return { type: types.USER_LOGGED_OUT };
+    } else {
+      return { type: types.USER_LOGGED_IN };
+    }
   },
 
-  getCurrentUser() {
-    axios.get('/auth/current-user', {
-      headers: {
-        authorization: localStorage.getItem('AUTH_TOKEN')
-      }
-    })
-    .then(res => {
-      console.log(res);
-    });
+  getCurrentUser(history) {
+    return function storeUserData(dispatch) {
+      fetch('/auth/current-user', {
+        headers: {
+          authorization: localStorage.getItem('AUTH_TOKEN')
+        }
+      }).then(res => {
+        return res.json();
+      })
+      .then(data => {
+        const provider = data.provider;
+        dispatch({
+          type: types.STORE_USER_DATA,
+          payload: data[provider]
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
   },
 
   onUserAuthentication(isLoggedIn, history) {
@@ -35,18 +42,18 @@ const actions = {
     }
   },
 
-  onLocalSignUp(email, password, history) {
-    email = 'test@test.com';
-    password = 'test123';
-    return function (dispatch) {
-      console.log(email, password, history);
-      axios.post('/auth/sign-up', { email, password })
-        .then(user => {
-          console.log(user);
-          console.log('success!');
-        });
-    }
-  }
+  // onLocalSignUp(email, password, history) {
+  //   email = 'test@test.com';
+  //   password = 'test123';
+  //   return function (dispatch) {
+  //     console.log(email, password, history);
+  //     axios.post('/auth/sign-up', { email, password })
+  //       .then(user => {
+  //         console.log(user);
+  //         console.log('success!');
+  //       });
+  //   }
+  // }
 };
 
 export default actions;
