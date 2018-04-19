@@ -3,8 +3,8 @@ const express = require('express'),
       Auth = require('../controllers/authController');
 
 // AUTH ROUTES
-router.post('/log-in', Auth.userLogIn);
-router.post('/sign-up', Auth.userSignUp);
+router.get('/log-in', Auth.userLogIn);
+router.get('/sign-up', Auth.userSignUp);
 
 router.get('/hello', Auth.requireAuth, (req, res, next) => {
   res.send('Hello!!!');

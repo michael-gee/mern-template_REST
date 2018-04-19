@@ -17,34 +17,36 @@ exports.userSignUp = (req, res, next) => {
         email = 'michaelgee221@gmail.com',
         password = 'test';
 
-  User.findOne({ "local.email": email })
-    .then(existingUser => {
-      if (existingUser) {
-        return res.status(422).send({ error: 'Email is already in use.' });
-      }
+  console.log(req.body);
 
-      const newUser = new User({
-        provider: 'local',
-        local: {
-          displayName: name,
-          email: email,
-          password: password,
-          photoURL: 'https://firebasestorage.googleapis.com/v0/b/chat-box-217e3.appspot.com/o/default-user-image.png?alt=media&token=bf477e99-aae0-4073-993f-83cd4042d755'
-        }
-      });
+  // User.findOne({ "local.email": email })
+  //   .then(existingUser => {
+  //     if (existingUser) {
+  //       return res.status(422).send({ error: 'Email is already in use.' });
+  //     }
 
-      newUser.save()
-        .then(user => {
-          const accessToken = token.generateToken(req.user);
-          res.redirect(`/token?token=${accessToken}`);
-        })
-        .catch(err => {
-          next(err);
-        });
-    })
-    .catch(err => {
-      next(err);
-    });
+  //     const newUser = new User({
+  //       provider: 'local',
+  //       local: {
+  //         displayName: name,
+  //         email: email,
+  //         password: password,
+  //         photoURL: 'https://firebasestorage.googleapis.com/v0/b/chat-box-217e3.appspot.com/o/default-user-image.png?alt=media&token=bf477e99-aae0-4073-993f-83cd4042d755'
+  //       }
+  //     });
+
+  //     newUser.save()
+  //       .then(user => {
+  //         const accessToken = token.generateToken(req.user);
+  //         res.redirect(`/token?token=${accessToken}`);
+  //       })
+  //       .catch(err => {
+  //         next(err);
+  //       });
+  //   })
+  //   .catch(err => {
+  //     next(err);
+  //   });
 }
 
 exports.githubLogIn = passport.authenticate('github');
