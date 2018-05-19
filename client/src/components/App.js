@@ -3,15 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import actions from '../actions';
 
-import Header from './Layout/Header/Header';
-
-import HomePage from './Views/HomePage/HomePage';
-import AuthPage from './Views/AuthPage/AuthPage';
-import NotFoundPage from './Views/NotFoundPage/NotFoundPage';
-import TokenConfig from './Views/TokenConfig/TokenConfig';
-import UserProfile from './Views/UserProfile/UserProfile';
-
-import './App.css';
+import Header from './Header';
+import HomePage from './Pages/HomePage';
+import AuthPage from './Pages/AuthPage';
+import NotFoundPage from './Pages/NotFoundPage';
+import TokenConfig from './Pages/TokenConfig';
+import UserProfile from './Pages/UserProfile';
 
 class App extends Component {
   componentDidMount() {

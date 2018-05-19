@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import actions from '../../../actions';
+import actions from '../../actions';
 
 class UserProfile extends Component {
   componentDidMount() {
@@ -18,7 +18,7 @@ class UserProfile extends Component {
           <ul>
             <li>{this.props.userData.displayName}</li>
             <li>{this.props.userData.email}</li>
-            <li><img src={this.props.userData.photoURL} alt="User Image" /></li>
+            <li><img src={this.props.userData.photoURL} alt="Current User" /></li>
           </ul>
         </div>
       );
